@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django</title>
+     <style>
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse; /* IMPORTANT */
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vikash Kumar Singh</h1>
+    {{peoples}}
+
+    <table>
+  <tr>
+    <th>S.no</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Can Vote</th>
+  </tr>
+  {%for people in peoples%}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{people.name}}</td>
+    <td>{{people.age}}</td>
+    <td>
+        {% if people.age >= 18 %}
+        👍
+        {% else %}
+        👎
+        {%endif%}
+    </td>
+  </tr>
+  {% endfor %}
+
+</table>
+<p>{{text|truncatechars:30}}</p>  
+<!-- truncatechars is used to show only texts numbers of which you want to show -->
+</body>
+</html>
