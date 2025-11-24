@@ -1,33 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django</title>
-     <style>
-        table {
-            width: 70%;
-            margin: 20px auto;
-            border-collapse: collapse; /* IMPORTANT */
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #fafafa;
-        }
-    </style>
-</head>
-<body>
-    <h1>Vikash Kumar Singh</h1>
+ {% extends "base.html" %}
+ {% block start %}
+ <h1>Vikash Kumar Singh</h1>
+<a href="/contact/">
+    contact
+</a>
+<br>
+<a href="/about/">
+    about
+</a>
+<br><br>
     {{peoples}}
 
     <table>
@@ -55,5 +36,13 @@
 </table>
 <p>{{text|truncatechars:30}}</p>  
 <!-- truncatechars is used to show only texts numbers of which you want to show -->
-</body>
-</html>
+
+<p>
+    {% if  "mango" in fruits %}
+    yes availabe
+    {% else %}
+    Not Availabe
+    {% endif %}
+</p>
+
+{% endblock %}
